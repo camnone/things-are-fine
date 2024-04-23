@@ -1,0 +1,89 @@
+name: thingsarefine
+description: "Things Are Fine' is a convenient and intuitive application for organizing tasks and plans for every day. With it, you can effectively manage your time, create to-do lists, set priorities, track completed tasks, and stay on track to achieve your goals. You'll no longer have to worry about missed tasks or forgotten plans - Things Are Fine will help you stay organized and efficient. Turn your dreams into real results with this simple and powerful task management tool. Start using Things Are Fine today and feel the difference in your productivity and confidence in your abilities."
+
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  auto_route: ^8.0.3
+  intl: ^0.19.0
+  lottie: ^3.1.0
+  realm: ^2.0.0
+  uuid: ^4.4.0
+  json_annotation: ^4.8.1
+  flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
+  appsflyer_sdk: ^6.13.2+1
+  app_tracking_transparency: ^2.0.4
+  permission_handler: ^11.3.1
+  firebase_core: ^2.30.0
+  firebase_messaging: ^14.8.2
+  flutter_local_notifications: ^17.0.1
+  shared_preferences: ^2.2.3
+  dio: ^5.4.3+1
+  cloud_firestore: ^4.17.0
+  dart_openai: ^5.1.0
+  chat_gpt_sdk: ^3.0.4
+  url_launcher: ^6.2.6
+  get_it: ^7.7.0
+  webview_flutter: ^4.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.9
+  auto_route_generator: ^8.0.0
+  json_serializable: ^6.7.1
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
+  flutter_lints: ^2.0.0
+
+flutter_native_splash:
+  color: "42a5f5"
+  android: true
+
+flutter_icons:
+  android: true
+  image_path: "assets/logo.jpg"
+  adaptive_icon_background: "assets/logo_background.png"
+  adaptive_icon_foreground: "assets/logo_foreground.png"
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/lottie/
+    - assets/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

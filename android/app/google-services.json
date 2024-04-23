@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "471794161482",
+    "project_id": "lucky-task-81c06",
+    "storage_bucket": "lucky-task-81c06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471794161482:android:6123a02affd848ba4193b3",
+        "android_client_info": {
+          "package_name": "com.things.are.fine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_O88u8IZmoiXj5XC-uat2sjGWhb6mpdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471794161482:android:c688048be1ed65d84193b3",
+        "android_client_info": {
+          "package_name": "com.things.are.fine1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_O88u8IZmoiXj5XC-uat2sjGWhb6mpdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

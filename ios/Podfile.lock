@@ -1,0 +1,43 @@
+PODS:
+  - app_tracking_transparency (0.0.1):
+    - Flutter
+  - appsflyer_sdk (6.13.2):
+    - AppsFlyerFramework (= 6.13.2)
+    - Flutter
+  - AppsFlyerFramework (6.13.2):
+    - AppsFlyerFramework/Main (= 6.13.2)
+  - AppsFlyerFramework/Main (6.13.2)
+  - Flutter (1.0.0)
+  - realm (2.0.0):
+    - Flutter
+
+DEPENDENCIES:
+  - app_tracking_transparency (from `.symlinks/plugins/app_tracking_transparency/ios`)
+  - appsflyer_sdk (from `.symlinks/plugins/appsflyer_sdk/ios`)
+  - Flutter (from `Flutter`)
+  - realm (from `.symlinks/plugins/realm/ios`)
+
+SPEC REPOS:
+  trunk:
+    - AppsFlyerFramework
+
+EXTERNAL SOURCES:
+  app_tracking_transparency:
+    :path: ".symlinks/plugins/app_tracking_transparency/ios"
+  appsflyer_sdk:
+    :path: ".symlinks/plugins/appsflyer_sdk/ios"
+  Flutter:
+    :path: Flutter
+  realm:
+    :path: ".symlinks/plugins/realm/ios"
+
+SPEC CHECKSUMS:
+  app_tracking_transparency: 5b1745ef9ade815f7455cb6a0848349589afb7c5
+  appsflyer_sdk: 2dc4ca3bc37c4fe89e09edbed0b92588a82f8405
+  AppsFlyerFramework: 39efd4d2523ca9e3234805aea0c6b3c3a4a387d1
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  realm: 4fa2fb4527ee5f5a486c131bffd8486444d6482c
+
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
+
+COCOAPODS: 1.15.2
