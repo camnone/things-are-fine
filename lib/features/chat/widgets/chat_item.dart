@@ -59,7 +59,7 @@ class ChatItem extends StatelessWidget {
                     ),
                     height: 256,
                     width: 256,
-                    child: CircularProgressIndicator(),
+                    child: const CircularProgressIndicator(),
                   )
                 : text.contains("https://storage.googleapis.com")
                     ? GestureDetector(

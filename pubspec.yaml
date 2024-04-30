@@ -2,7 +2,7 @@ name: thingsarefine
 description: "Things Are Fine' is a convenient and intuitive application for organizing tasks and plans for every day. With it, you can effectively manage your time, create to-do lists, set priorities, track completed tasks, and stay on track to achieve your goals. You'll no longer have to worry about missed tasks or forgotten plans - Things Are Fine will help you stay organized and efficient. Turn your dreams into real results with this simple and powerful task management tool. Start using Things Are Fine today and feel the difference in your productivity and confidence in your abilities."
 
 publish_to: "none"
-version: 1.0.0+1
+version: 2.0.3
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -34,6 +34,7 @@ dependencies:
   url_launcher: ^6.2.6
   get_it: ^7.7.0
   webview_flutter: ^4.7.0
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -46,8 +47,9 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter_native_splash:
-  color: "42a5f5"
   android: true
+  color: "#252427"
+  image: "assets/logo.jpg"
 
 flutter_icons:
   android: true

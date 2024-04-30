@@ -23,7 +23,17 @@ class _LoaderScreenState extends State<LoaderScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: CircularProgressIndicator(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircularProgressIndicator(
+              color: Colors.yellow,
+            ),
+            SizedBox(height: 32),
+            Text("Loading..."),
+          ],
+        ),
       ),
     );
   }

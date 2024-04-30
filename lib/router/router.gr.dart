@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ChatScreen(),
       );
     },
+    DeaplinkRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DeaplinkScreen(),
+      );
+    },
     HistoryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -31,6 +37,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomeScreen(),
+      );
+    },
+    InternetRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const InternetScreen(),
       );
     },
     LoaderRoute.name: (routeData) {
@@ -75,6 +87,20 @@ class ChatRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [DeaplinkScreen]
+class DeaplinkRoute extends PageRouteInfo<void> {
+  const DeaplinkRoute({List<PageRouteInfo>? children})
+      : super(
+          DeaplinkRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DeaplinkRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [HistoryScreen]
 class HistoryRoute extends PageRouteInfo<void> {
   const HistoryRoute({List<PageRouteInfo>? children})
@@ -98,6 +124,20 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [InternetScreen]
+class InternetRoute extends PageRouteInfo<void> {
+  const InternetRoute({List<PageRouteInfo>? children})
+      : super(
+          InternetRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'InternetRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

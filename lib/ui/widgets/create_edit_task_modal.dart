@@ -111,7 +111,6 @@ Future<dynamic> createEditTaskModal(
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {
-                                  print(index);
                                   setState(() => activeCategoryIndex = index);
                                 },
                                 child: Container(

@@ -1,6 +1,6 @@
 abstract interface class InitAppInterfaceRepository {
   ///[инициализация приложения]
-  void init();
+  Future<void> init();
 
   ///[инициализация af]
   Future<void> afStart();
@@ -15,4 +15,8 @@ abstract interface class InitAppInterfaceRepository {
 
   /// [показать приложение]
   void showApplication();
+
+  Future<void> registerAppPamyatki();
+
+  Map<String, dynamic> linkConstructor();
 }

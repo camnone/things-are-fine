@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:thingsarefine/blocs/theme_cubit/theme_cubit.dart';
 import 'package:thingsarefine/features/history/bloc/history_bloc.dart';
 import 'package:thingsarefine/features/task/bloc/task_bloc.dart';
 import 'package:thingsarefine/firebase_options.dart';
+import 'package:thingsarefine/repositories/app/firebase_repository.dart';
 import 'package:thingsarefine/repositories/chat/chat_repository.dart';
 import 'package:thingsarefine/repositories/history/history_repository.dart';
 import 'package:thingsarefine/repositories/history/models/history.dart';
@@ -15,16 +18,12 @@ import 'package:thingsarefine/repositories/app/app_repository.dart';
 import 'package:thingsarefine/router/router.dart';
 import 'package:thingsarefine/ui/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:realm/realm.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -34,8 +33,10 @@ Future<void> main() async {
   final prefs = await SharedPreferences.getInstance();
   final config = Configuration.local([Task.schema, History.schema]);
   final realm = Realm(config);
+  final messaging = FirebaseMessaging.instance;
 
   GetIt.I.registerSingleton(AppRepository(prefs: prefs));
+  GetIt.I.registerLazySingleton(() => FirebaseRepository(messaging: messaging));
   GetIt.I.registerLazySingleton(
     () => ChatRepository(
       prefs: prefs,
@@ -45,11 +46,13 @@ Future<void> main() async {
     ),
   );
 
-  runApp(ThingsAreFineApp(
-    prefs: prefs,
-    realm: realm,
-    firebase: firebase,
-  ));
+  runApp(
+    ThingsAreFineApp(
+      prefs: prefs,
+      realm: realm,
+      firebase: firebase,
+    ),
+  );
 }
 
 class ThingsAreFineApp extends StatefulWidget {
@@ -68,6 +71,7 @@ class ThingsAreFineApp extends StatefulWidget {
 
 class _ThingsAreFineAppState extends State<ThingsAreFineApp> {
   final _router = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     final taskRepository = TaskRepository(realm: widget.realm);

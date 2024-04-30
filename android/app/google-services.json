@@ -7,28 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:471794161482:android:6123a02affd848ba4193b3",
+        "mobilesdk_app_id": "1:471794161482:android:05a25ada772e01064193b3",
         "android_client_info": {
           "package_name": "com.things.are.fine"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA_O88u8IZmoiXj5XC-uat2sjGWhb6mpdU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:471794161482:android:c688048be1ed65d84193b3",
-        "android_client_info": {
-          "package_name": "com.things.are.fine1"
         }
       },
       "oauth_client": [],

@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA_O88u8IZmoiXj5XC-uat2sjGWhb6mpdU',
-    appId: '1:471794161482:android:c688048be1ed65d84193b3',
+    appId: '1:471794161482:android:05a25ada772e01064193b3',
     messagingSenderId: '471794161482',
     projectId: 'lucky-task-81c06',
     storageBucket: 'lucky-task-81c06.appspot.com',

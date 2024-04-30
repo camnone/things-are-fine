@@ -1,10 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:thingsarefine/repositories/app/app_repository.dart';
+import 'package:thingsarefine/router/router.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 @RoutePage()
@@ -17,19 +16,29 @@ class WebScreen extends StatefulWidget {
 
 class _WebScreenState extends State<WebScreen> {
   late final WebViewController controller;
-  final String url =
-      GetIt.I<AppRepository>().getValue(GetIt.I<AppRepository>().link)!;
+  late String url;
+  final appRepository = GetIt.I<AppRepository>();
+
   var progressPercentage = 0;
 
   Future<void> _load(url) async {
     controller
       ..setNavigationDelegate(
         NavigationDelegate(
+          onHttpAuthRequest: (request) {
+            log(request.toString());
+          },
           onWebResourceError: (error) async {
-            log(error.errorCode.toString());
-
             if (error.errorCode == -9 && error.url != null) {
               await controller.loadRequest(Uri.parse(error.url!));
+            }
+
+            if (error.errorCode == -10) {
+              controller.goBack();
+              await appRepository.setValue(
+                  appRepository.redirectUrl, error.url!);
+
+              context.pushRoute(DeaplinkRoute());
             }
           },
           onPageStarted: (url) {
@@ -59,15 +68,43 @@ class _WebScreenState extends State<WebScreen> {
   }
 
   @override
-  void initState() {
+  initState() {
+    getLink();
     controller = WebViewController()..loadRequest(Uri.parse(url));
     _load(url);
     super.initState();
   }
 
+  Future<void> getLink() async {
+    if (appRepository.getValue(appRepository.pushUrl) != null) {
+      setState(() {
+        url = appRepository.getValue(appRepository.pushUrl).toString();
+      });
+      await appRepository.clearKeyValue(appRepository.pushUrl);
+    } else {
+      url = appRepository.getValue(appRepository.link).toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: () async {
+        final messenger = ScaffoldMessenger.of(context);
+
+        if (await controller.canGoBack()) {
+          await controller.goBack();
+        } else {
+          messenger.showSnackBar(
+            const SnackBar(
+              content: Text("No Back history Found"),
+            ),
+          );
+          return false;
+        }
+        return false;
+      },
+      child: Scaffold(
         appBar: AppBar(
           leading: const Text(""),
           actions: [
@@ -130,6 +167,8 @@ class _WebScreenState extends State<WebScreen> {
                 ),
               )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
